@@ -8,4 +8,6 @@ public interface StudentService {
 
 	Student getByRoll(String string);
 
+	Student updateStudents(Student student);
+
 }

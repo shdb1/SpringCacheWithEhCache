@@ -3,7 +3,9 @@ package com.shadab.spring.cache.ehcache.app;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 
+import com.shadab.spring.cache.ehcache.cacheconfig.UpdateCacheConfig;
 import com.shadab.spring.cache.ehcache.configuration.ApplicationConfig;
+import com.shadab.spring.cache.ehcache.model.Student;
 import com.shadab.spring.cache.ehcache.services.StudentService;
 import com.shadab.spring.cache.ehcache.services.StudentServices;
 
@@ -17,7 +19,23 @@ public class App {
 		
 		System.out.println("Making First call to get Student :"+studentServices.getByRoll("123"));
 		System.out.println("Making Second call to get Student :"+studentServices.getByRoll("123"));
+		studentServices.evictStudents();
 		System.out.println("Making Third call to get Student :"+studentServices.getByRoll("123"));
+		
+		UpdateCacheConfig update = new UpdateCacheConfig();
+		update.updateCacheConfig();
+		update.disableFutureUpdates();
+		update.updateCacheConfig();
+		
+	/*	 Student student = new Student("Ram", "123", "test Street 123");
+		 
+		 
+		 studentServices.updateStudents(student);
+		 
+		 System.out.println("Making First call to get Student :"+studentServices.getByRoll("123"));
+			System.out.println("Making Second call to get Student :"+studentServices.getByRoll("123"));
+			System.out.println("Making Third call to get Student :"+studentServices.getByRoll("123"));
+			
 		
 		studentServices.evictStudents();
 		
@@ -26,17 +44,18 @@ public class App {
 		System.out.println("Making Third call to get Student :"+studentServices.getByRoll("123"));
 		
 		
-studentServices.evictStudents();
-		
+      studentServices.evictStudents();
+
+
+
 		System.out.println("Making First call to get Student :"+studentServices.getByRoll("125"));
 		System.out.println("Making Second call to get Student :"+studentServices.getByRoll("125"));
 		System.out.println("Making Third call to get Student :"+studentServices.getByRoll("125"));
 		
 		System.out.println("Making First call to get Student :"+studentServices.getByRoll("128"));
 		System.out.println("Making Second call to get Student :"+studentServices.getByRoll("128"));
-		System.out.println("Making Third call to get Student :"+studentServices.getByRoll("128"));
-		
-		((AbstractApplicationContext) context).close();
+		System.out.println("Making Third call to get Student :"+studentServices.getByRoll("128"));*/
+ 		((AbstractApplicationContext) context).close();
 	}
 
 }

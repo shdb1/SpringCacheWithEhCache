@@ -28,9 +28,6 @@ public class StudentServices implements StudentService{
 		Student foundStudent =null;
 		
 		System.out.println("-------------------Called---------------------------rollNumber:"+rollNumber);
-		/* students.forEach(student->{if(student.getRollNumber().equals(rollNumber)) {
-System.out.println("Yes Student is Available");		 }});*/
-		 
 		 for(Student currentStudent:students) {
 			 
 			 if(currentStudent.getRollNumber().equals(rollNumber)) {

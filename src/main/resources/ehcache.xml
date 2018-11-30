@@ -14,7 +14,11 @@
 		timeToLiveSeconds="600"
 		memoryStoreEvictionPolicy="LFU" 
 		transactionalMode="off">
-		<persistence strategy="localTempSwap" />
-	</cache>
+		
+		<persistence strategy="localTempSwap"/>
+		
+</cache>
 
 </ehcache>
+
+
